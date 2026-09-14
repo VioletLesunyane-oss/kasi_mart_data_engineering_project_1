@@ -1,1 +1,348 @@
+-----QUESTION 1-----
 
+-- 1.CREATTING THE DATABASE
+create database de_project1
+
+
+-----QUESTION 2-----
+
+-- 2. CREATING TABLES
+-- 2.1. Customers 
+create table de_project1.public.customers(
+customer_id varchar (255), 
+customer_name varchar (255), 
+email varchar (255), 
+province varchar (255), 
+signup_date date
+)
+
+--Checking the table was created properly
+select* from de_project1.public.customers
+
+
+-- 2.2. Products
+create table de_project1.public.products(
+product_id varchar (255), 
+product_name varchar (255),
+category varchar (255),
+unit_price decimal
+)
+
+--Checking the table was created properly
+select* from de_project1.public.products
+
+-- 2.3. Orders
+create table de_project1.public.orders(
+order_id varchar (255), 
+customer_id varchar (255), 
+product_id varchar (255), 
+order_date date, 
+quantity int
+)
+
+--Checking the table was created properly
+select* from de_project1.public.orders
+
+-----QUESTION 3-----
+
+-- 3. INSERTING THE DATA ON TO THE TABLES
+-- 3.1 Inserting the data into the Customers Table
+INSERT INTO de_project1.public.customers(customer_id, customer_name, email, province, signup_date) 
+VALUES
+    ('C001', 'Zanele Nkosi', 'zanele.nkosi1@example.com', 'Free State', '2025-09-08'),
+    ('C002', 'Naledi Dlamini', 'naledi.dlamini2@example.com', 'Western Cape', '2026-07-13'),
+    ('C003', 'Sipho Els', 'sipho.els3@example.com', 'Mpumalanga', '2025-02-02'),
+    ('C004', 'Thabo Van der Merwe', 'thabo.van.der.merwe4@example.com', 'Eastern Cape', '2025-08-27'),
+    ('C005', 'Michael Els', 'michael.els5@example.com', 'Gauteng', '2026-07-29'),
+    ('C006', 'David Fourie', 'david.fourie6@example.com', 'Northern Cape', '2026-03-06'),
+    ('C007', 'Naledi Naidoo', 'naledi.naidoo7@example.com', 'Free State', '2025-01-07'),
+    ('C008', 'Lerato Fourie', 'lerato.fourie8@example.com', 'Mpumalanga', '2025-12-15'),
+    ('C009', 'Kagiso Dlamini', 'kagiso.dlamini9@example.com', 'Eastern Cape', '2025-12-11'),
+    ('C010', 'Zanele Van der Merwe', 'zanele.van.der.merwe10@example.com', 'Mpumalanga', '2025-04-10'),
+    ('C011', 'Nomvula Coetzee', 'nomvula.coetzee11@example.com', 'Limpopo', '2025-09-28'),
+    ('C012', 'Aisha Fourie', 'aisha.fourie12@example.com', 'North West', '2026-07-04'),
+    ('C013', 'Zanele Mbeki', 'zanele.mbeki13@example.com', 'Mpumalanga', '2025-03-22'),
+    ('C014', 'Ayanda Mokoena', 'ayanda.mokoena14@example.com', 'Limpopo', '2026-08-15'),
+    ('C015', 'David Fourie', 'david.fourie15@example.com', 'Western Cape', '2025-02-16'),
+    ('C016', 'Naledi Ndlovu', 'naledi.ndlovu16@example.com', 'Free State', '2025-03-23'),
+    ('C017', 'Naledi Coetzee', 'naledi.coetzee17@example.com', 'Western Cape', '2026-01-25'),
+    ('C018', 'Kagiso Naidoo', 'kagiso.naidoo18@example.com', 'Limpopo', '2025-06-16'),
+    ('C019', 'Nomvula Pretorius', 'nomvula.pretorius19@example.com', 'Eastern Cape', '2025-10-01'),
+    ('C020', 'Sipho Els', 'sipho.els20@example.com', 'KwaZulu-Natal', '2026-07-01'),
+    ('C021', 'Naledi Dlamini', 'naledi.dlamini21@example.com', 'North West', '2026-01-24'),
+    ('C022', 'Kagiso Mbeki', 'kagiso.mbeki22@example.com', 'Northern Cape', '2025-08-13'),
+    ('C023', 'Pieter Coetzee', 'pieter.coetzee23@example.com', 'Gauteng', '2025-08-23'),
+    ('C024', 'Aisha Ndlovu', 'aisha.ndlovu24@example.com', 'Limpopo', '2026-02-15'),
+    ('C025', 'Kagiso Van der Merwe', 'kagiso.van.der.merwe25@example.com', 'Eastern Cape', '2026-08-04'),
+    ('C026', 'Pieter Botha', 'pieter.botha26@example.com', 'North West', '2026-02-10'),
+    ('C027', 'Chloe Dlamini', 'chloe.dlamini27@example.com', 'Free State', '2025-05-23'),
+    ('C028', 'Naledi Fourie', 'naledi.fourie28@example.com', 'Northern Cape', '2026-07-06'),
+    ('C029', 'Kagiso Fourie', 'kagiso.fourie29@example.com', 'Mpumalanga', '2026-08-21'),
+    ('C030', 'Sarah Pretorius', 'sarah.pretorius30@example.com', 'Eastern Cape', '2025-05-22'),
+    ('C031', 'Michael Naidoo', 'michael.naidoo31@example.com', 'Western Cape', '2025-02-18'),
+    ('C032', 'Zanele Dlamini', 'zanele.dlamini32@example.com', 'KwaZulu-Natal', '2026-03-09'),
+    ('C033', 'Sam Van der Merwe', 'sam.van.der.merwe33@example.com', 'Mpumalanga', '2026-01-26'),
+    ('C034', 'Sam Naidoo', 'sam.naidoo34@example.com', 'Northern Cape', '2025-09-15'),
+    ('C035', 'Ayanda Coetzee', 'ayanda.coetzee35@example.com', 'Gauteng', '2025-04-28'),
+    ('C036', 'Ayanda Ndlovu', 'ayanda.ndlovu36@example.com', 'Free State', '2025-12-15'),
+    ('C037', 'Zanele Mokoena', 'zanele.mokoena37@example.com', 'Mpumalanga', '2025-06-11'),
+    ('C038', 'Chloe Nkosi', 'chloe.nkosi38@example.com', 'Free State', '2026-05-28'),
+    ('C039', 'Lerato Khumalo', 'lerato.khumalo39@example.com', 'Western Cape', '2025-11-02'),
+    ('C040', 'Michael Els', 'michael.els40@example.com', 'Eastern Cape', '2025-06-06'),
+    ('C041', 'Nomvula Ndlovu', 'nomvula.ndlovu41@example.com', 'KwaZulu-Natal', '2026-07-07'),
+    ('C042', 'Michael Mbeki', 'michael.mbeki42@example.com', 'Gauteng', '2025-11-28'),
+    ('C043', 'Karabo Nkosi', 'karabo.nkosi43@example.com', 'Western Cape', '2026-01-07'),
+    ('C044', 'Fatima Botha', 'fatima.botha44@example.com', 'Gauteng', '2025-09-04'),
+    ('C045', 'Grace Van der Merwe', 'grace.van.der.merwe45@example.com', 'Western Cape', '2026-05-13'),
+    ('C046', 'Sipho Ndlovu', 'sipho.ndlovu46@example.com', 'Northern Cape', '2025-05-09'),
+    ('C047', 'Johan Mahlangu', 'johan.mahlangu47@example.com', 'North West', '2026-07-17'),
+    ('C048', 'Lerato Mokoena', 'lerato.mokoena48@example.com', 'Northern Cape', '2026-03-10'),
+    ('C049', 'David Mbeki', 'david.mbeki49@example.com', 'Northern Cape', '2025-07-25'),
+    ('C050', 'Fatima Sithole', 'fatima.sithole50@example.com', 'Limpopo', '2026-03-25');
+
+    --Checking how big my data is
+    select count(*) from de_project1.public.customers
+    
+-- 3.2 Inserting the data into the Products Table
+INSERT INTO de_project1.public.products(product_id, product_name, category, unit_price) 
+VALUES
+    ('P001', 'Bluetooth Speaker', 'Electronics', 1087.57),
+    ('P002', 'Wireless Earbuds', 'Electronics', 585.66),
+    ('P003', 'Power Bank', 'Electronics', 357.65),
+    ('P004', 'USB-C Cable', 'Electronics', 151.71),
+    ('P005', 'Smart Watch', 'Electronics', 103.56),
+    ('P006', 'Coffee Mug', 'Home', 700.39),
+    ('P007', 'Throw Blanket', 'Home', 739.05),
+    ('P008', 'Desk Lamp', 'Home', 88.05),
+    ('P009', 'Storage Box', 'Home', 872.78),
+    ('P010', 'Kitchen Scale', 'Home', 145.94),
+    ('P011', 'Sneakers', 'Fashion', 155.49),
+    ('P012', 'Denim Jacket', 'Fashion', 115.18),
+    ('P013', 'Backpack', 'Fashion', 450.08),
+    ('P014', 'Sunglasses', 'Fashion', 655.85),
+    ('P015', 'Cap', 'Fashion', 391.89),
+    ('P016', 'Shampoo', 'Beauty', 623.66),
+    ('P017', 'Moisturizer', 'Beauty', 683.94),
+    ('P018', 'Perfume', 'Beauty', 890.15),
+    ('P019', 'Lip Balm', 'Beauty', 1068.27),
+    ('P020', 'Face Mask', 'Beauty', 725.36);
+
+ --Checking how big my data is
+    select count(*) from de_project1.public.products
+ 
+-- 3.3 Inserting the data into the Orders Table
+INSERT INTO de_project1.public.orders(order_id, customer_id, product_id, order_date, quantity) 
+VALUES
+    ('O0001', 'C016', 'P016', '2026-07-26', 4),
+    ('O0002', 'C013', 'P004', '2026-01-25', 4),
+    ('O0003', 'C023', 'P014', '2026-04-16', 4),
+    ('O0004', 'C047', 'P002', '2026-06-22', 1),
+    ('O0005', 'C004', 'P013', '2026-07-06', 3),
+    ('O0006', 'C007', 'P008', '2026-02-19', 2),
+    ('O0007', 'C035', 'P015', '2026-02-05', 4),
+    ('O0008', 'C012', 'P009', '2026-04-29', 2),
+    ('O0009', 'C005', 'P015', '2026-07-26', 5),
+    ('O0010', 'C007', 'P002', '2026-06-16', 5),
+    ('O0011', 'C001', 'P003', '2026-08-26', 2),
+    ('O0012', 'C011', 'P014', '2026-05-05', 4),
+    ('O0013', 'C014', 'P013', '2026-08-20', 1),
+    ('O0014', 'C011', 'P013', '2026-01-01', 4),
+    ('O0015', 'C017', 'P015', '2026-03-15', 4),
+    ('O0016', 'C045', 'P018', '2026-06-19', 4),
+    ('O0017', 'C010', 'P007', '2026-03-17', 2),
+    ('O0018', 'C004', 'P019', '2026-07-08', 5),
+    ('O0019', 'C004', 'P011', '2026-01-15', 1),
+    ('O0020', 'C038', 'P016', '2026-05-09', 5),
+    ('O0021', 'C011', 'P002', '2026-09-03', 5),
+    ('O0022', 'C006', 'P006', '2026-01-18', 5),
+    ('O0023', 'C005', 'P008', '2026-04-14', 1),
+    ('O0024', 'C037', 'P008', '2026-05-29', 5),
+    ('O0025', 'C003', 'P020', '2026-01-21', 4),
+    ('O0026', 'C043', 'P019', '2026-05-25', 5),
+    ('O0027', 'C021', 'P009', '2026-02-22', 3),
+    ('O0028', 'C016', 'P009', '2026-04-12', 2),
+    ('O0029', 'C043', 'P010', '2026-04-28', 3),
+    ('O0030', 'C049', 'P003', '2026-01-03', 4),
+    ('O0031', 'C040', 'P019', '2026-01-26', 1),
+    ('O0032', 'C035', 'P007', '2026-05-10', 3),
+    ('O0033', 'C009', 'P012', '2026-08-14', 1),
+    ('O0034', 'C016', 'P012', '2026-03-14', 2),
+    ('O0035', 'C029', 'P018', '2026-06-30', 3),
+    ('O0036', 'C040', 'P017', '2026-01-03', 5),
+    ('O0037', 'C020', 'P004', '2026-08-29', 2),
+    ('O0038', 'C017', 'P004', '2026-08-16', 1),
+    ('O0039', 'C048', 'P018', '2026-02-09', 3),
+    ('O0040', 'C019', 'P020', '2026-02-23', 3),
+    ('O0041', 'C014', 'P009', '2026-05-10', 4),
+    ('O0042', 'C017', 'P002', '2026-01-24', 4),
+    ('O0043', 'C018', 'P002', '2026-01-01', 3),
+    ('O0044', 'C050', 'P005', '2026-06-13', 3),
+    ('O0045', 'C011', 'P015', '2026-05-22', 4),
+    ('O0046', 'C036', 'P001', '2026-01-29', 1),
+    ('O0047', 'C045', 'P005', '2026-05-20', 1),
+    ('O0048', 'C024', 'P019', '2026-05-22', 2),
+    ('O0049', 'C028', 'P005', '2026-01-11', 3),
+    ('O0050', 'C024', 'P002', '2026-08-19', 3),
+    ('O0051', 'C014', 'P008', '2026-06-20', 1),
+    ('O0052', 'C023', 'P018', '2026-08-15', 4),
+    ('O0053', 'C040', 'P005', '2026-08-25', 2),
+    ('O0054', 'C011', 'P006', '2026-08-14', 4),
+    ('O0055', 'C002', 'P006', '2026-07-08', 3),
+    ('O0056', 'C027', 'P008', '2026-03-10', 2),
+    ('O0057', 'C045', 'P004', '2026-04-08', 1),
+    ('O0058', 'C031', 'P008', '2026-02-21', 4),
+    ('O0059', 'C023', 'P010', '2026-07-30', 2),
+    ('O0060', 'C015', 'P001', '2026-06-18', 2),
+    ('O0061', 'C026', 'P011', '2026-03-13', 1),
+    ('O0062', 'C050', 'P009', '2026-03-31', 5),
+    ('O0063', 'C026', 'P018', '2026-03-26', 1),
+    ('O0064', 'C008', 'P009', '2026-02-15', 5),
+    ('O0065', 'C017', 'P002', '2026-01-28', 5),
+    ('O0066', 'C028', 'P012', '2026-07-06', 3),
+    ('O0067', 'C028', 'P020', '2026-05-11', 1),
+    ('O0068', 'C025', 'P019', '2026-02-18', 3),
+    ('O0069', 'C003', 'P014', '2026-01-01', 5),
+    ('O0070', 'C035', 'P007', '2026-04-04', 4),
+    ('O0071', 'C005', 'P011', '2026-06-09', 3),
+    ('O0072', 'C043', 'P004', '2026-07-04', 3),
+    ('O0073', 'C033', 'P010', '2026-06-20', 4),
+    ('O0074', 'C021', 'P013', '2026-06-28', 3),
+    ('O0075', 'C036', 'P005', '2026-02-19', 4),
+    ('O0076', 'C043', 'P013', '2026-06-23', 2),
+    ('O0077', 'C040', 'P019', '2026-03-19', 4),
+    ('O0078', 'C036', 'P001', '2026-03-19', 3),
+    ('O0079', 'C014', 'P014', '2026-07-21', 5),
+    ('O0080', 'C039', 'P011', '2026-04-30', 4),
+    ('O0081', 'C029', 'P007', '2026-05-11', 4),
+    ('O0082', 'C048', 'P006', '2026-06-18', 1),
+    ('O0083', 'C019', 'P017', '2026-06-19', 5),
+    ('O0084', 'C022', 'P003', '2026-07-29', 2),
+    ('O0085', 'C044', 'P010', '2026-02-27', 2),
+    ('O0086', 'C010', 'P001', '2026-01-12', 2),
+    ('O0087', 'C031', 'P020', '2026-08-06', 1),
+    ('O0088', 'C030', 'P014', '2026-08-15', 5),
+    ('O0089', 'C013', 'P013', '2026-05-07', 4),
+    ('O0090', 'C016', 'P005', '2026-06-17', 1),
+    ('O0091', 'C049', 'P004', '2026-07-19', 4),
+    ('O0092', 'C015', 'P006', '2026-07-25', 5),
+    ('O0093', 'C030', 'P002', '2026-05-23', 2),
+    ('O0094', 'C008', 'P015', '2026-02-04', 4),
+    ('O0095', 'C043', 'P017', '2026-05-24', 5),
+    ('O0096', 'C021', 'P015', '2026-06-06', 5),
+    ('O0097', 'C028', 'P018', '2026-04-25', 2),
+    ('O0098', 'C048', 'P016', '2026-04-26', 3),
+    ('O0099', 'C049', 'P008', '2026-08-04', 3),
+    ('O0100', 'C050', 'P017', '2026-05-05', 2),
+    ('O0101', 'C018', 'P015', '2026-01-20', 3),
+    ('O0102', 'C016', 'P009', '2026-03-27', 3),
+    ('O0103', 'C035', 'P003', '2026-02-05', 2),
+    ('O0104', 'C015', 'P013', '2026-06-27', 2),
+    ('O0105', 'C046', 'P007', '2026-01-17', 4),
+    ('O0106', 'C027', 'P011', '2026-05-19', 4),
+    ('O0107', 'C027', 'P002', '2026-02-22', 4),
+    ('O0108', 'C025', 'P019', '2026-08-31', 1),
+    ('O0109', 'C049', 'P019', '2026-04-08', 4),
+    ('O0110', 'C001', 'P012', '2026-03-18', 4),
+    ('O0111', 'C027', 'P018', '2026-07-11', 5),
+    ('O0112', 'C039', 'P008', '2026-05-05', 2),
+    ('O0113', 'C018', 'P014', '2026-05-05', 1),
+    ('O0114', 'C025', 'P011', '2026-06-21', 4),
+    ('O0115', 'C047', 'P006', '2026-08-04', 4),
+    ('O0116', 'C009', 'P020', '2026-05-17', 1),
+    ('O0117', 'C026', 'P019', '2026-05-25', 1),
+    ('O0118', 'C006', 'P014', '2026-02-04', 4),
+    ('O0119', 'C012', 'P002', '2026-03-08', 4),
+    ('O0120', 'C021', 'P007', '2026-04-27', 3),
+    ('O0121', 'C022', 'P013', '2026-03-13', 4),
+    ('O0122', 'C017', 'P003', '2026-05-01', 1),
+    ('O0123', 'C048', 'P018', '2026-01-14', 3),
+    ('O0124', 'C015', 'P003', '2026-07-19', 1),
+    ('O0125', 'C049', 'P001', '2026-09-01', 2),
+    ('O0126', 'C013', 'P001', '2026-06-09', 2),
+    ('O0127', 'C016', 'P005', '2026-05-02', 1),
+    ('O0128', 'C037', 'P007', '2026-04-30', 3),
+    ('O0129', 'C050', 'P012', '2026-02-12', 5),
+    ('O0130', 'C039', 'P004', '2026-07-19', 2),
+    ('O0131', 'C020', 'P004', '2026-05-29', 1),
+    ('O0132', 'C020', 'P019', '2026-06-23', 4),
+    ('O0133', 'C026', 'P007', '2026-01-20', 5),
+    ('O0134', 'C045', 'P008', '2026-01-27', 3),
+    ('O0135', 'C044', 'P020', '2026-07-26', 1),
+    ('O0136', 'C037', 'P002', '2026-03-30', 5),
+    ('O0137', 'C028', 'P012', '2026-01-18', 5),
+    ('O0138', 'C042', 'P011', '2026-01-04', 4),
+    ('O0139', 'C032', 'P004', '2026-04-21', 3),
+    ('O0140', 'C041', 'P015', '2026-07-01', 2),
+    ('O0141', 'C028', 'P006', '2026-07-07', 5),
+    ('O0142', 'C042', 'P009', '2026-06-07', 5),
+    ('O0143', 'C050', 'P016', '2026-04-30', 4),
+    ('O0144', 'C047', 'P019', '2026-03-10', 3),
+    ('O0145', 'C016', 'P003', '2026-03-13', 4),
+    ('O0146', 'C016', 'P015', '2026-05-26', 5),
+    ('O0147', 'C043', 'P013', '2026-03-28', 1),
+    ('O0148', 'C032', 'P011', '2026-02-16', 4),
+    ('O0149', 'C014', 'P012', '2026-07-24', 3),
+    ('O0150', 'C022', 'P009', '2026-08-14', 5);
+    
+ --Checking how big my data is
+    select count(*) from de_project1.public.orders
+
+-----QUESTION 4-----
+
+-- 4. Write and run these four queries, and keep the SQL for each:
+-- 4.1. Every order joined to customer name, product name, category, and a calculated line_revenue (quantity times unit_price).
+
+   SELECT
+    o.order_id,
+    o.order_date,
+    c.customer_name,
+    p.product_name,
+    p.category,
+    o.quantity,
+    p.unit_price,
+    o.quantity * p.unit_price AS line_revenue
+FROM orders o
+JOIN customers c ON o.customer_id = c.customer_id
+JOIN products p ON o.product_id = p.product_id;
+
+--Imagine you have three separate notebooks: one with a list of customers, one with a list of products, and one with a list of orders. The problem is, the orders notebook doesn't say "John bought a Bluetooth Speaker", it just says something like "Customer C016 bought Product P016," which means nothing to a normal person reading it. This query takes those three notebooks and combines them into one single, easy-to-read list, so instead of confusing codes, you actually see the customer's real name, the product's real name, and what category it belongs to. We also added a new column called line_revenue, which is just the price of the item multiplied by how many were bought, so you can see how much money that one order actually made. As for why we left out the ID codes (like C016 and P016) in the final result, those codes are only needed as a kind of "matching tool" to connect the three notebooks together correctly behind the scenes. Once the notebooks are connected and we already know which name and product matches which order, there's no need to keep showing the codes anymore, because the real names give the same information in a way that's actually easy for a person to read and understand.
+
+-- 4.2. Total revenue per customer.
+SELECT
+    c.customer_id,
+    c.customer_name,
+    SUM(o.quantity * p.unit_price) AS total_revenue
+FROM orders o
+JOIN customers c ON o.customer_id = c.customer_id
+JOIN products p ON o.product_id = p.product_id
+GROUP BY c.customer_id, c.customer_name
+ORDER BY total_revenue DESC;
+
+--This query adds up all the amount each individual customer has spent across every order they've made. 
+--This query is crucial because it lets us quickly see which customers are the most valuable to the business, instead of having to look through every single order one by one and calculate it yourself.
+
+-- 4.3. Total revenue per product category.
+SELECT
+    p.category,
+    SUM(o.quantity * p.unit_price) AS total_revenue
+FROM orders o
+JOIN products p ON o.product_id = p.product_id
+GROUP BY p.category
+ORDER BY total_revenue DESC;
+
+--This query groups all the orders by product category (like Electronics, Home, or Fashion) and adds up how much revenue each category brought in. 
+--This query is important because it shows which categories are performing well and which ones aren't, which helps the business decide where to focus their attention or stock.
+
+-- 4.4 Top 5 customers by total spend.
+SELECT
+    c.customer_id,
+    c.customer_name,
+    SUM(o.quantity * p.unit_price) AS total_spend
+FROM orders o
+JOIN customers c ON o.customer_id = c.customer_id
+JOIN products p ON o.product_id = p.product_id
+GROUP BY c.customer_id, c.customer_name
+ORDER BY total_spend DESC
+LIMIT 5;
+
+--This query is basically the same idea as Query 2, but it only shows the 5 customers who spent the most money overall. It matters because it highlights your best, most loyal customers, which is useful if the business wants to reward them or focus marketing efforts on the people who matter most to their income.
