@@ -12,7 +12,7 @@
 
 ## Project Overview
 
-This project simulates a small e-commerce sales environment inside **Snowflake**, using three source files: `customers.csv`, `products.csv`, and `orders.csv`. The goal was to design a simple relational data model, load the data into Snowflake with appropriate data types, confirm the load was successful, and then write analytical SQL queries to answer real business questions — such as which customers spend the most and which product categories generate the most revenue.
+This project simulates a small e-commerce sales environment inside **Snowflake**, using three source files: `customers.csv`, `products.csv`, and `orders.csv`. The goal was to design a simple relational data model, load the data into Snowflake with appropriate data types, confirm the load was successful, and then write analytical SQL queries to answer real business questions, such as which customers spend the most and which product categories generate the most revenue.
 
 All work for this project was completed **exclusively in Snowflake**, per the project requirements. No external tools (Excel, Python, etc.) were used to transform or load the data.
 
@@ -88,7 +88,7 @@ CREATE TABLE de_project1.public.orders (
 └── screenshots/               # Validation and query result screenshots
 ```
 
-**Note on data loading:** Because the dataset is small (50 / 20 / 150 rows) and was provided inline rather than as files staged in Snowflake, the load step was performed using `INSERT INTO ... VALUES (...)` statements rather than `COPY INTO` from a staged file. This is functionally equivalent for this project's purposes — all rows land in the correct table with the correct types — but in a production pipeline with larger files, the CSVs would instead be staged (internal or external stage) and loaded with `COPY INTO`.
+**Note on data loading:** Because the dataset is small (50 / 20 / 150 rows) and was provided inline rather than as files staged in Snowflake, the load step was performed using `INSERT INTO ... VALUES (...)` statements rather than `COPY INTO` from a staged file. This is functionally equivalent for this project's purposes, all rows land in the correct table with the correct types, but in a production pipeline with larger files, the CSVs would instead be staged (internal or external stage) and loaded with `COPY INTO`.
 
 ---
 
@@ -128,7 +128,7 @@ JOIN customers c ON o.customer_id = c.customer_id
 JOIN products p ON o.product_id = p.product_id;
 ```
 
-**Write-up:** Think of this as combining three separate notebooks — one for customers, one for products, one for orders — into a single readable list. On their own, the orders table just says something like "customer C016 bought product P016," which means nothing to a person reading it. This query joins all three tables on their ID columns so the output shows the actual customer name, product name, and category instead of codes. It also adds a calculated `line_revenue` column (quantity × unit price) so you can see exactly how much money each individual order generated. The ID columns are dropped from the final output because they only exist to link the tables together behind the scenes — once the join has matched everything correctly, the human-readable names carry the same information more usefully.
+**Write-up:** Think of this as combining three separate notebooks, one for customers, one for products, one for orders, into a single readable list. On their own, the orders table just says something like "customer C016 bought product P016," which means nothing to a person reading it. This query joins all three tables on their ID columns so the output shows the actual customer name, product name, and category instead of codes. It also adds a calculated `line_revenue` column (quantity × unit price) so you can see exactly how much money each individual order generated. The ID columns are dropped from the final output because they only exist to link the tables together behind the scenes, once the join has matched everything correctly, the human-readable names carry the same information more usefully.
 
 ### 2. Total Revenue Per Customer
 
@@ -158,7 +158,7 @@ GROUP BY p.category
 ORDER BY total_revenue DESC;
 ```
 
-**Write-up:** This query groups all orders by product category — Electronics, Home, Fashion, Beauty — and sums up how much revenue each category generated. It's important because it shows which categories are actually performing well and which are underperforming, giving the business a clear basis for deciding where to focus stock, marketing, or pricing attention.
+**Write-up:** This query groups all orders by product category, Electronics, Home, Fashion, Beauty, and sums up how much revenue each category generated. It's important because it shows which categories are actually performing well and which are underperforming, giving the business a clear basis for deciding where to focus stock, marketing, or pricing attention.
 
 ### 4. Top 5 Customers by Total Spend
 
@@ -175,7 +175,7 @@ ORDER BY total_spend DESC
 LIMIT 5;
 ```
 
-**Write-up:** This builds directly on Query 2 but narrows the result down to just the five customers who spent the most overall, using `ORDER BY ... DESC` combined with `LIMIT 5`. It's useful because it highlights the business's most loyal, highest-value customers — the people most worth rewarding with loyalty perks or targeting with focused marketing, since they already contribute the most to overall revenue.
+**Write-up:** This builds directly on Query 2 but narrows the result down to just the five customers who spent the most overall, using `ORDER BY ... DESC` combined with `LIMIT 5`. It's useful because it highlights the business's most loyal, highest-value customers, the people most worth rewarding with loyalty perks or targeting with focused marketing, since they already contribute the most to overall revenue.
 
 > 📸 *Insert screenshots or CSV exports of each query's result set here.*
 
