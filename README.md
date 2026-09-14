@@ -189,6 +189,6 @@ LIMIT 5;
 - **Aggregation:** Using `SUM()` with `GROUP BY` to roll fact-table rows up to the customer and category level.
 - **Sorting & limiting:** Using `ORDER BY ... DESC` and `LIMIT` together to surface top performers (top 5 customers).
 - **Calculated fields:** Deriving `line_revenue` and `total_revenue`/`total_spend` on the fly (`quantity * unit_price`) rather than storing pre-computed values, keeping the data normalized.
-- **Load validation:** Confirming a successful data load with `SELECT COUNT(*)` against expected row counts (50 / 20 / 150) before moving on to analysis — a basic but essential data quality check.
+- **Load validation:** Confirming a successful data load with `SELECT COUNT(*)` against expected row counts (50 / 20 / 150) before moving on to analysis, a basic but essential data quality check.
 
 This project lays the groundwork for the capstone (`BrightLearn_Snowflake_Capstone.md`), which assumes comfort with loading, joining, and analyzing data independently in Snowflake.
