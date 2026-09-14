@@ -1,4 +1,4 @@
-# Data Engineering Project 1 — Snowflake Sales Data Pipeline
+# Data Engineering Project 1 
 
 ## Table of Contents
 1. [Project Overview](#project-overview)
